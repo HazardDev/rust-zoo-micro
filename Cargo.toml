@@ -3,9 +3,21 @@ name = "small_microservice"
 version = "0.1.0"
 authors = ["Logan Saso <logansaso@gmail.com>"]
 
+[dependencies]
+diesel = { version = "1.3.2", features = ["postgres"] }
+dotenv = "0.13.0"
+animals_svc = { path = "animals_svc" }
+exhibits_svc = { path = "exhibits_svc" }
+
+
 [workspace]
 members = [
-    "animals-svc",
-    "exhibits-svc",
-    "exhibits-api"
-    ]
+    "animals_svc",
+    "exhibits_svc",
+    "exhibits_api",
+]
+
+[[bin]]
+name = "zoo"
+path = "exhibits_api/src/main.rs"
+

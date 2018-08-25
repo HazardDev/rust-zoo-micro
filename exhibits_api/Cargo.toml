@@ -1,0 +1,10 @@
+[package]
+name = "exhibits_api"
+version = "0.1.0"
+authors = ["Logan Saso <logansaso@gmail.com>"]
+
+[dependencies]
+#animals_svc = { path = "../animals_svc" }
+#exhibits_svc = { path = "../exhibits_svc" }
+#diesel = { version = "1.3.2", features = ["postgres"] }
+#dotenv = "0.13.0"
