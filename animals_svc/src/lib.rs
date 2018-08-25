@@ -7,14 +7,21 @@ pub mod models;
 
 use diesel::prelude::*;
 use diesel::pg::PgConnection;
-use dotenv::dotenv;
-use std::env;
 
-pub fn establish_connection() -> PgConnection {
-    dotenv().ok();
+use models::{NewAnimal, Animal};
 
-    let database_url = env::var("DATABASE_URL")
-        .expect("DATABASE_URL must be set");
-    PgConnection::establish(&database_url)
-        .expect(&format!("Error connecting to {}", database_url))
+pub fn birth_animal<'a>(conn: &PgConnection, name: &'a str, species: &'a str) -> Animal {
+
+    use schema::animals;
+
+    let new_animal = NewAnimal {
+        name: name,
+        species: species,
+    };
+
+    diesel::insert_into(animals::table)
+        .values(&new_animal)
+        .get_result(conn)
+        .expect("Error saving new animal")
+
 }
