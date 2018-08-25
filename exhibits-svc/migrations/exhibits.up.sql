@@ -1,0 +1,6 @@
+CREATE TABLE exhibits (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    animals INTEGAR[],
+    open BOOLEAN NOT NULL DEFAULT FALSE,
+)
