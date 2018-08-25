@@ -1,0 +1,11 @@
+[package]
+name = "small_microservice"
+version = "0.1.0"
+authors = ["Logan Saso <logansaso@gmail.com>"]
+
+[workspace]
+members = [
+    "animals-svc",
+    "exhibits-svc",
+    "exhibits-api"
+    ]
